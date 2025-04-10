@@ -1,4 +1,3 @@
-// import * as React from "react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -149,14 +148,14 @@ function HeroSection() {
                         fontWeight: "bold"
                     }}
                 >
-                    Empower Your Future
+                    The People's Tech Revolution
                 </h1>
                 <h2
                     ref={heading2Ref}
                     className="mx-auto my-0 text-8xl italic font-bold text-center text-white max-w-[840px] max-md:text-7xl max-sm:text-5xl"
                     style={{ margin: 0, opacity: 1, zIndex: 20, position: "relative" }}
                 >
-                    Build, Innovate &amp; Thrive With DAK Foundation
+                    Break Barriers, Build Futures — No Cost, No Code, No Limits.
                 </h2>
                 
                 {/* Carousel Component */}
