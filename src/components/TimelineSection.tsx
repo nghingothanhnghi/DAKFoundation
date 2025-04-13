@@ -16,7 +16,53 @@ export const TimelineSection: React.FC = () => {
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
-    if (sectionRef.current && headerRef.current && timelineRef.current && progressBarRef.current && timelineItemsRef.current) {
+    if (
+      sectionRef.current && 
+      headerRef.current && 
+      timelineRef.current && 
+      progressBarRef.current && 
+      timelineItemsRef.current
+    ) {
+
+      const h1 = headerRef.current.querySelector("h1");
+      const p = headerRef.current.querySelector("p");
+
+      // ScrollTrigger animations for h1 and p
+      if (h1 && p) {
+        gsap.fromTo(
+          h1,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: h1,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          p,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: p,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+
       // Create a main timeline for the entire section
       const mainTl = gsap.timeline({
         scrollTrigger: {
@@ -181,8 +227,8 @@ export const TimelineSection: React.FC = () => {
         ref={headerRef}
         className="px-36 pt-36 max-md:px-16 max-sm:px-5"
       >
-        <h1 className="text-2xl bg-[clip-text]">DAK Foundation</h1>
-        <p className="mt-2 text-xs font-bold text-white max-md:text-7xl max-sm:text-5xl">
+        <h1 className="font-400 bg-[linear-gradient(100.73deg,_#0066FF_13.44%,_#AE0BFF_49.78%)] bg-clip-text text-transparent">DAK Foundation</h1>
+        <p className="text-2xl lg:text-8xl font-bold text-white">
           Timeline
         </p>
       </header>
